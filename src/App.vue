@@ -1,45 +1,39 @@
 <script>
 
-import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue';
 
 export default {
-  name: 'App',
-
+  
+  components: {
+    ProjectCard,
+  },
   data() {
     return {
-      base_url: 'http://127.0.0.1:8000',
-      projects: ''
+
     }
   },
-
+  methods: {
+  },
   mounted() {
-
-
-    axios
-      .get(`${this.base_url}/api/projects`)
-      .then(response => {
-        console.log(response);
-        this.projects = response.data.projects
-
-      })
-
-
   }
-
-
 }
+
+  
+
+
+
 
 
 </script>
 
 
 <template>
- <h1>funziona</h1>
- <div v-for="project in projects.data">
-  <p>{{ project.title }}</p>
- </div>
+ 
+
+
+<ProjectCard/>
+
 </template>
 
 <style scoped>
-
 </style>

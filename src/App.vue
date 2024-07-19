@@ -36,21 +36,10 @@ export default {
 <template>
  <h1>funziona</h1>
  <div v-for="project in projects.data">
-  ciao
+  <p>{{ project.title }}</p>
  </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>

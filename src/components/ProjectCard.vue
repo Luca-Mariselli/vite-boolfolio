@@ -35,7 +35,7 @@ export default {
 
 <template>
  
-
+<h1 class="my-container my-3 ps-3">My projects:</h1>
 
  <div class="my-container">
   <div class="my-projects-box">
@@ -46,14 +46,20 @@ export default {
         <div class="my-courses-item_title">
           {{project.title}}
         </div>
-        
-        <div style="min-height: 200px;" v-if="project.img.startsWith('http')"><img  :src="project.img" alt="" style="z-index: 99; position: relative;" width="200"></div>
-        <div style="min-height: 200px;" v-else ><img :src="base_url + 'storage/' + project.img" alt="" style="z-index: 99; position: relative;" width="200" ></div>
 
-        <div class="my-courses-item_date-box">
-          Start:
+        <div class="my-courses-item_date-box mb-3">
+          <span class="my-courses-item_type">
+            {{ project.type.name }}
+          </span>
+        </div>
+        
+        <div v-if="project.img.startsWith('http')" style="min-height: 200px;"><img  :src="project.img" alt="" style="z-index: 99; position: relative;" width="200"></div>
+        <div v-else style="min-height: 200px;"><img :src="base_url + 'storage/' + project.img" alt="" style="z-index: 99; position: relative;" width="200" ></div>
+
+        <div class="my-courses-item_date-box mt-3">
+          Date:
           <span class="my-courses-item_date">
-            04.11.2022
+            {{ project.date }}
           </span>
         </div>
       </a>
@@ -65,6 +71,10 @@ export default {
 </template>
 
 <style scoped>
+
+img{
+    width: 100%;
+}
 .my-container {
   width: 1142px;
   margin: 0 auto;
@@ -103,17 +113,23 @@ export default {
   position: relative;
 }
 .my-courses-item_link:hover,
-.my-courses-item_link:hover .my-courses-item_date {
+.my-courses-item_link:hover .my-courses-item_date  {
   text-decoration: none;
   color: #FFF;
 }
-.my-courses-item_link:hover .my-courses-item_bg {
+
+.my-courses-item_link:hover,
+.my-courses-item_link:hover .my-courses-item_type  {
+  text-decoration: none;
+  color: #FFF;
+}
+.my-courses-item_link:hover .my-courses-item_bg  {
   -webkit-transform: scale(10);
   -ms-transform: scale(10);
   transform: scale(10);
 }
 .my-courses-item_title {
-  min-height: 70px;
+  height: 60px;
   margin: 0 0 5px;
 
   overflow: hidden;
@@ -135,6 +151,15 @@ export default {
 .my-courses-item_date {
   font-weight: bold;
   color: #f9b234;
+
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+
+.my-courses-item_type {
+  font-weight: bold;
+  color: #cd3e94;
 
   -webkit-transition: color .5s ease;
   -o-transition: color .5s ease;

@@ -1,11 +1,14 @@
 <script>
 
-import ProjectCard from './components/ProjectCard.vue';
+
+import AppHeader from './components/AppHeader.vue';
+
 
 export default {
-  
+  name: 'App',
+
   components: {
-    ProjectCard,
+    AppHeader,
   },
   data() {
     return {
@@ -18,7 +21,8 @@ export default {
   }
 }
 
-  
+
+
 
 
 
@@ -28,13 +32,13 @@ export default {
 
 
 <template>
- 
+
+  <AppHeader></AppHeader>
+  <RouterView />
 
 
-<ProjectCard/>
+  <!-- <ProjectCard /> -->
 
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
